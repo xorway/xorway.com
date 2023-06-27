@@ -13,5 +13,11 @@ js/xterm.js:
 js/xterm.js.map:
 	curl --fail-with-body https://cdn.jsdelivr.net/npm/xterm@5.2.1/lib/xterm.js.map -o js/xterm.js.map
 
+logo.txt: xorway-whox.ans Makefile
+	cp xorway-whox.ans $(@)
+
+# The file  needs CR+LF line endings to be properly rendered by xterm.js
+	unix2dos -f $(@)
+
 serve:
 	python3 -m http.server 8000

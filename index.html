@@ -3,13 +3,44 @@
     <head>
       <link rel="stylesheet" href="css/xterm.css" />
       <script src="js/xterm.js"></script>
+      <style type="text/css">
+        body {
+          background-color: #2D2E2C;
+        }
+
+        .terminal {
+          margin: 2rem;
+          padding: 1rem;
+        }
+      </style>
     </head>
     <body>
       <div id="terminal"></div>
-      <script>
-        var term = new Terminal();
-        term.open(document.getElementById('terminal'));
-        term.write('Hello from \x1B[1;36mxterm.js\x1B[0m $ ')
+      <script type="text/javascript">
+        // Logo stored outside of main HTML file since it contains escape sequences
+        const url = "logo.txt";
+
+        fetch(url)
+          .then( r => r.text() )
+          .then( t => {
+            var theme = {
+              black: 'black',
+            };
+
+            var term = new Terminal({
+              theme: theme
+            });
+
+            term.open(document.getElementById('terminal'));
+            term.write(t);
+
+            term.writeln('Empowering the world with high-quality software solutions since 1995.');
+            term.writeln("Yeah, we even _believe_ it's still 1995 in fact. ;)");
+            term.writeln('');
+
+            term.writeln("To get info on how to contact us, type 'info'.");
+            term.write('$ ');
+        });
       </script>
     </body>
-  </html>
+</html>
