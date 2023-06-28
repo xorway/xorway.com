@@ -23,13 +23,16 @@ fetch(url)
         });
 
         term.open(document.getElementById('terminal'));
-        term.write(t);
 
-        term.writeln('Empowering the world with high-quality software solutions since 1995.');
-        term.writeln("Yeah, we even _believe_ it's _still_ 1995 in fact. ;)");
-        term.writeln('');
+        term.showLogo = () => {
+            term.write(t);
 
-        term.writeln("For information about available commands, try \x1B[1m'help'\x1B[0m.");
+            term.writeln('Empowering the world with high-quality software solutions since 1995.');
+            term.writeln("Yeah, we even _believe_ it's _still_ 1995 in fact. ;)");
+            term.writeln('');
+
+            term.writeln("For information about available commands, try \x1B[1m'help'\x1B[0m.");
+        };
 
         term.onData(e => {
             switch (e) {
@@ -100,19 +103,45 @@ fetch(url)
             dir: {
                 f: () => {
                     term.writeln([
-                        ' Volume in drive C is XOR-DOS_6',
+                        ' Volume in drive C is XOR-DOS_622',
                         ' Volume Serial Number is C0CA-C01A',
                         ' Directory of C:\\',
                         '',
-                        'INFO     TXT           718 06-28-23 10:22p',
                         'HELP     COM           413 05-31-94  6:22a',
-                        '        1 file(s)        205,718 bytes',
-                        '                         909,312 bytes free',
+                        'INFO     TXT           718 06-28-23 10:22p',
+                        'LOGO     ANS         2,076 06-27-23 10:52p',
+                        '        1 file(s)          3,207 bytes',
+                        '                       1,048,576 bytes free',
                     ].join('\r\n'));
 
                     term.prompt();
                 },
                 description: 'Lists the files in the current directory'
+            },
+            type: {
+                f: (file) => {
+                    if (!Boolean(file)) {
+                        term.writeln('Required parameter missing');
+                        term.prompt();
+                        return;
+                    }
+
+                    file = file.toUpperCase();
+
+                    if (file == 'INFO.TXT') {
+                        // TODO: more content here
+                        term.writeln('Bravo, you made it!');
+                    }
+                    else if (file == 'LOGO.ANS') {
+                        term.showLogo();
+                    }
+                    else {
+                        term.writeln(`File not found - ${file}`);
+                    }
+
+                    term.prompt();
+                },
+                description: 'Displays a text file on the screen'
             },
             ver: {
                 f: () => {
@@ -120,18 +149,31 @@ fetch(url)
                     term.writeln('(c) Copyright Xorway Solutions 1995, 2023');
                     term.prompt();
                 },
-                description: 'Displays the XOR-DOS version.'
+                description: 'Displays the XOR-DOS version currently running'
             }
         };
 
         function runCommand(term, text) {
-            const command = text.trim().split(' ')[0];
+            const commandAndParameters = text.trim().split(' ');
+            const command = commandAndParameters[0];
+            const firstParameter = commandAndParameters[1];
+
+            if (commandAndParameters.length > 2) {
+                // If more than one parameter is provided, only the second
+                // parameter is printed even though more parameters may have
+                // been provided. This matches the MS-DOS semantics perfectly.
+                // ;)
+                term.writeln('');
+                term.writeln(`Too many parameters - ${commandAndParameters[2]}`);
+                term.prompt();
+                return;
+            }
 
             if (command.length > 0) {
                 term.writeln('');
 
                 if (command in commands) {
-                    commands[command].f();
+                    commands[command].f(firstParameter);
                     return;
                 }
 
@@ -141,7 +183,8 @@ fetch(url)
             term.prompt();
         }
 
-        // All initialized: show the prompt and hand over control to xterm.js
-        term.focus();
+        // All initialized: show the logo + prompt and hand over control to xterm.js
+        term.showLogo();
         term.prompt();
+        term.focus();
     });
