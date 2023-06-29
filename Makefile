@@ -1,4 +1,4 @@
-.PHONY: serve
+.PHONY: serve dist-checkout dist
 
 all: css/xterm.css js/xterm.js js/xterm.js.map
 
@@ -21,3 +21,10 @@ logo.txt: xorway-whox.ans Makefile
 
 serve:
 	python3 -m http.server 8000
+
+dist-checkout:
+	git clone -b gh-pages --single-branch git@github.com:xorway/xorway.com.git dist
+
+dist:
+	cp -r css/ js/ logo.txt demo.js index.html dist/
+	(cd dist && git add -A && git commit -m 'Update gh-pages branch' && git push)
