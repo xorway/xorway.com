@@ -130,7 +130,7 @@ fetch(url)
 
                     if (file == 'INFO.TXT') {
                         // TODO: more content here
-                        term.writeln('Bravo, you made it!');
+                        term.writeln('Well done, you made it! Contact info will be added here, please check us out again soon.');
                     }
                     else if (file == 'LOGO.ANS') {
                         term.showLogo();
