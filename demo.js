@@ -22,6 +22,9 @@ fetch(url)
             theme: theme
         });
 
+        // Make URL:s clickable, for easier use
+        term.loadAddon(new WebLinksAddon.WebLinksAddon());
+
         term.open(document.getElementById('terminal'));
 
         term.showLogo = () => {
@@ -128,10 +131,38 @@ fetch(url)
 
                     file = file.toUpperCase();
 
-                    if (file == 'INFO.TXT') {
-                        // TODO: more content here
-                        term.writeln('Well done, you made it! Contact info will be added here, please check us out');
-                        term.writeln('again soon.');
+                    if (file == 'HELP.COM') {
+                        // .COM files in MS-DOS are binary files without any
+                        // header. If you TYPE them on the screen, you'll get
+                        // the binary data displayed as-is, which literally
+                        // looks like garbage.
+                        //
+                        // The data in this case roughly corresponds to
+                        // SIERPIE~1.COM, as seen on
+                        // https://copy.sh/v86/?profile=msdos. I used copy-paste
+                        // to copy it from there, and then converted it to a
+                        // hexadecimal representation of UTF-8 data, which works
+                        // well with the Uint8Array xterm.js expects for UTF-8
+                        // data.
+                        term.writeln(new Uint8Array([
+                            0xE2, 0x95, 0x95, 0xE2, 0x80, 0xBC, 0x20, 0xE2, 0x95, 0x90, 0xE2, 0x96, 0xBA, 0xE2, 0x95, 0x95, 0x20, 0xC3, 0xA1, 0xC3, 0x84, 0xE2, 0x95,
+                            0xAA, 0xE2, 0x95, 0x95, 0xC3, 0x87, 0x20, 0x48, 0xE2, 0x95, 0x91, 0xC3, 0x87, 0x20, 0x4A, 0xE2, 0x96, 0x92, 0x20, 0xC3, 0xa0, 0xE2, 0x95,
+                            0xA8, 0x75, 0xE2, 0x98, 0xBB, 0xE2, 0x96, 0x92, 0xE2, 0x98, 0xBC, 0xC3, 0xAB, 0xE2, 0x95, 0x9F, 0xC3, 0xAB, 0xE2, 0x95, 0x93, 0xE2, 0x95,
+                            0xA4, 0xCE, 0xB5, 0xE2, 0x98, 0xBA, 0xE2, 0x89, 0x88, 0xE2, 0x95, 0x97, 0xC3, 0x87, 0x20, 0x29, 0xE2, 0x95, 0x99, 0x69, 0xE2, 0x96, 0x88,
+                            0x40, 0xE2, 0x98, 0xBA, 0xC3, 0xAA, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0xE2,
+                            0x95, 0xA5, 0x75, 0xCE, 0xB1, 0x20, 0x20, 0x20, 0x20, 0x20, 0xE2, 0x94, 0x94, 0x75, 0xE2, 0x95, 0xAA, 0xE2, 0x94, 0xA4, 0x20, 0xE2, 0x95,
+                            0x90, 0xE2, 0x96, 0xAC, 0xE2, 0x95, 0x95, 0xE2, 0x99, 0xA5, 0x20, 0xE2, 0x95, 0x90, 0xE2, 0x96, 0xBA
+                        ]));
+                    }
+                    else if (file == 'INFO.TXT') {
+                        // Note: the reason why the email address is "encoded"
+                        // in this silly way is simply to make it harder for
+                        // email address harvesting...
+                        term.writeln('Well done, you made it! Here is our contact information.');
+                        term.writeln('For sales/marketing and other inquries, please contact ' + 'moc.yawrox@sodrox'.split('').reverse().join(''));
+                        term.writeln('');
+                        term.writeln('The full source to this demo can also be found at');
+                        term.writeln('https://github.com/xorway/xorway.com');
                     }
                     else if (file == 'LOGO.ANS') {
                         term.showLogo();
