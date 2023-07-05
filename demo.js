@@ -22,6 +22,9 @@ fetch(url)
             theme: theme
         });
 
+        // Make URL:s clickable, for easier use
+        term.loadAddon(new WebLinksAddon.WebLinksAddon());
+
         term.open(document.getElementById('terminal'));
 
         term.showLogo = () => {
