@@ -152,9 +152,14 @@ fetch(url)
                         ]));
                     }
                     else if (file == 'INFO.TXT') {
-                        // TODO: more content here
-                        term.writeln('Well done, you made it! Contact info will be added here, please check us out');
-                        term.writeln('again soon.');
+                        // Note: the reason why the email address is "encoded"
+                        // in this silly way is simply to make it harder for
+                        // email address harvesting...
+                        term.writeln('Well done, you made it! Here is our contact information.');
+                        term.writeln('For sales/marketing and other inquries, please contact ' + 'moc.yawrox@sodrox'.split('').reverse().join(''));
+                        term.writeln('');
+                        term.writeln('The full source to this demo can also be found at');
+                        term.writeln('https://github.com/xorway/xorway.com');
                     }
                     else if (file == 'LOGO.ANS') {
                         term.showLogo();
