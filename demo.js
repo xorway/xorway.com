@@ -113,7 +113,7 @@ fetch(url)
                         'HELP     COM           413 05-31-94  6:22a',
                         'INFO     TXT           718 06-28-23 10:22p',
                         'LOGO     ANS         2,076 06-27-23 10:52p',
-                        '        1 file(s)          3,207 bytes',
+                        '        3 file(s)          3,207 bytes',
                         '                       1,048,576 bytes free',
                     ].join('\r\n'));
 
