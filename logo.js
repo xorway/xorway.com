@@ -40,8 +40,10 @@ fetch(url)
         term.showLogo = () => {
             term.write(t);
 
-            term.writeln('                                                 Free as in freedom! xorway.com');
+            //term.writeln('                                                 Free as in freedom! xorway.com');
             //term.writeln('"If the Son therefore shall make you free, ye shall be free indeed" - xorway.com');
+            //term.writeln('                                  Because Software wants to be Free! xorway.com');
+            term.writeln('                                    Because Free Software is better! xorway.com');
         };
 
         // All initialized: show the logo
