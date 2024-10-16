@@ -18,18 +18,22 @@ fetch(url)
             // Hack the colors to be able to render the logo.txt on a white background, suitable for
             // print/paper usage
             black: 'white',
+            brightWhite: '#729fcf'
+
             //blue: '#0000ff',
-            //brightBlue: 'black'
+            //brightBlue: 'black',
             //brightWhite: '#3465a4'
-            blue: '#8080ff',
-            brightBlue: '#000066',
+
+            //blue: '#8080ff',
+            //brightBlue: '#000066',
             //brightWhite: '#729fcf'
-            brightWhite: '#000066'
+            //brightWhite: '#000066'
         };
 
         var term = new Terminal({
             theme: theme,
-            fontFamily: 'DejaVu Sans Mono'
+            fontFamily: 'DejaVu Sans Mono',
+            fontSize: '32'
         });
 
         // Make URL:s clickable, for easier use
@@ -43,7 +47,8 @@ fetch(url)
             //term.writeln('                                                 Free as in freedom! xorway.com');
             //term.writeln('"If the Son therefore shall make you free, ye shall be free indeed" - xorway.com');
             //term.writeln('                                  Because Software wants to be Free! xorway.com');
-            term.writeln('                                    Because Free Software is better! xorway.com');
+            //term.writeln('                                    Because Free Software is better! xorway.com');
+            term.writeln('                        ...because Free Software is better software! xorway.com');
         };
 
         // All initialized: show the logo
