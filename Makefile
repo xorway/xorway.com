@@ -28,9 +28,8 @@ logo.txt: xorway-whox.ans Makefile
 serve:
 	python3 -m http.server 8000
 
-dist-checkout:
-	git clone -b gh-pages --single-branch git@github.com:xorway/xorway.com.git dist
-
 dist:
+	mkdir -p dist
 	cp -r css/ js/ logo.txt demo.js index.html dist/
-	(cd dist && git add -A && git commit -m 'Update gh-pages branch' && git push)
+	ssh $$XORWAY_WEB_HOST "sudo mkdir -p /var/www/xorway.com && sudo chown $$USER /var/www/xorway.com"
+	rsync --delete -av dist/ $$XORWAY_WEB_HOST:/var/www/xorway.com
