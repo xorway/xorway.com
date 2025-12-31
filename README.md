@@ -25,4 +25,4 @@ $ make dist
 
 ### More DOS-related links
 
-For a real MS-DOS 6.22 experience, please give https://copy.sh/v86/?profile=msdos a try. You can also https://www.dosbox.com/, which is a great way to run old DOS programs and games on a modern computer.
+For a real MS-DOS 6.22 experience, please give https://copy.sh/v86/?profile=msdos a try. You can also try https://www.dosbox.com/, which is a great way to run old DOS programs and games on a modern computer.
