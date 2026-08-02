@@ -45,11 +45,14 @@ build: $(PAGES)
 	cat partials/head-top.html pages/$*.head.html partials/head-bottom.html pages/$*.body.html partials/foot.html \
 	  | sed 's|@@TITLE@@|$(title-$*)|' > $@
 
+autobuild:
+	while true; do find -name \*.html -or -name Makefile -or -name \*.css -type f | entr -n -d bash -c 'scripts/time_it make build' ; done
+
 serve: build
-	python3 -m http.server 8000
+	live-server
 
 dist: build
 	mkdir -p dist
-	cp -r css/ js/ logo.txt demo.js $(HTML) dist/
+	cp -r css/ js/ logo.txt logo-wordmark.png demo.js $(HTML) dist/
 	ssh $$XORWAY_WEB_HOST "sudo mkdir -p /var/www/xorway.com && sudo chown $$USER /var/www/xorway.com"
 	rsync --delete -av dist/ $$XORWAY_WEB_HOST:/var/www/xorway.com

@@ -42,7 +42,7 @@ body {
 .site-header {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 0.5rem 1.5rem;
   padding: 1.1rem 2rem;
@@ -60,16 +60,22 @@ body {
 }
 
 .wordmark {
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: 1.15rem;
-  letter-spacing: 0.35em;
-  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
 }
 
-.wordmark:hover {
-  color: #9cc4ff;
+.wordmark img {
+  height: 36px;
+  width: auto;
+  display: block;
+  /* Pixel-art logo: keep the ANSI blocks crisp instead of smoothed. */
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.wordmark:hover img {
+  opacity: 0.85;
 }
 
 .site-nav {
