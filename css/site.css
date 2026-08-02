@@ -69,7 +69,8 @@ body {
   height: 36px;
   width: auto;
   display: block;
-  /* Pixel-art logo: keep the ANSI blocks crisp instead of smoothed. */
+
+  /* Keep the ANSI logo blocks sharp instead of smooth. */
   image-rendering: pixelated;
   image-rendering: crisp-edges;
 }
@@ -84,6 +85,9 @@ body {
   gap: 1.25rem;
   font-family: var(--mono);
   font-size: 0.95rem;
+
+  /* Keep the nav right-aligned even on pages without a logo (e.g. index). */
+  margin-left: auto;
 }
 
 .site-nav a {
@@ -212,6 +216,20 @@ body {
 
   .page h1 {
     font-size: 1.6rem;
+  }
+}
+
+/* Avoid wrapping the header onto two lines. Instead, keep nav below the logo,
+   and ensure both of them are left-aligned. */
+@media (max-width: 52rem) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .site-nav {
+    margin-left: 0;
   }
 }
 

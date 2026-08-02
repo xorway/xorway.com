@@ -1,3 +1,11 @@
+<?php
+
+$title = 'Perlang — Xorway Solutions';
+$description = 'Perlang';
+
+require 'partials/header.php';
+
+?>
     <main class="page">
       <h1>Perlang</h1>
 
@@ -32,3 +40,4 @@
         there. Thanks!
       </p>
     </main>
+<?php require 'partials/footer.php'; ?>

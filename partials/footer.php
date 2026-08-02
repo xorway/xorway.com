@@ -8,6 +8,8 @@
       </p>
     </footer>
     <script>
+      // Assemble the contact address at runtime, reversed, to make life a
+      // little harder for email-harvesting bots -- same spirit as INFO.TXT.
       (function () {
         var a = document.getElementById("site-contact");
         if (!a) return;

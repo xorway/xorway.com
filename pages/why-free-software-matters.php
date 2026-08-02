@@ -1,3 +1,11 @@
+<?php
+
+$title = 'Why Free Software Matters — Xorway Solutions';
+$description = 'Why Free Software Matters';
+
+require 'partials/header.php';
+
+?>
     <main class="page">
       <h1>Why Free Software Matters</h1>
 
@@ -89,6 +97,37 @@
         one or more of these SaaS/cloud-based solutions.
       </p>
 
+      <h2>Protection from "rug pulls"</h2>
+
+      <p>
+        There's another aspect worth pointing out here: with free software, you
+        have protection from so-called "rug pulls" &mdash; where the provider
+        changes the license to something less free, perhaps forcing you into
+        purchasing commercial licenses to remain using the software that your
+        own software system depends on.
+      </p>
+
+      <p>
+        This is not just a theoretical discussion. It has happened both with
+        <a
+        href="https://www.mongodb.com/company/newsroom/press-releases/mongodb-issues-new-server-side-public-license-for-mongodb-community-server">MongoDB
+        (2018)</a> and <a
+        href="https://redis.io/blog/redis-adopts-dual-source-available-licensing/">Redis
+        (2024)</a> previously. MongoDB remains under this license to this day,
+        but Redis luckily retracted (2025) and added AGPLv3 to their list of
+        licenses.
+      </p>
+
+      <p>
+        So, how are you protected from this? With free software licenses,
+        because of how software licensing works, <i>you can just remain on the
+        old version of the software</i>. There is nothing "forcing" you (apart
+        from possibly technical development, new operating system versions etc.)
+        from upgrading to the new version. Once released under a free software
+        license, <i>that</i> particular version remains free forever. Again,
+        <i>you</i> as a user have control over your own computing.
+      </p>
+
       <h2>Free Software licenses</h2>
 
       <p>
@@ -170,3 +209,4 @@
         are interested.
       </p>
     </main>
+<?php require 'partials/footer.php'; ?>

@@ -1,3 +1,11 @@
+<?php
+
+$title = 'About — Xorway Solutions';
+$description = 'About Xorway Solutions';
+
+require 'partials/header.php';
+
+?>
     <main class="page">
       <h1>About Xorway Solutions</h1>
 
@@ -55,3 +63,4 @@
         Some "contact us" inspiration here.
       </p>
     </main>
+<?php require 'partials/footer.php'; ?>
