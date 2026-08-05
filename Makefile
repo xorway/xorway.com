@@ -1,6 +1,6 @@
-.PHONY: serve dist-checkout dist
+.PHONY: serve dist-checkout dist build
 
-all: css/xterm.css js/xterm.js js/xterm.js.map js/xterm-addon-web-links.js js/xterm-addon-web-links.js.map
+all: css/xterm.css js/xterm.js js/xterm.js.map js/xterm-addon-web-links.js js/xterm-addon-web-links.js.map build
 
 # We download these using https://www.jsdelivr.com/ instead of npm, to avoid all
 # the hassle the whole Node.js ecosystem puts upon us.
@@ -25,11 +25,21 @@ logo.txt: xorway-whox.ans Makefile
 # The file  needs CR+LF line endings to be properly rendered by xterm.js
 	unix2dos -f $(@)
 
-serve:
-	python3 -m http.server 8000
+PAGES = index.html about.html why-free-software-matters.html perlang.html
 
-dist:
+build: $(PAGES)
+
+%.html: pages/%.php includes/header.php includes/footer.php Makefile
+	php $< > $@
+
+autobuild:
+	while true; do find css includes pages Makefile -type f | entr -n -d bash -c 'scripts/time_it make build' ; done
+
+serve: build
+	live-server
+
+dist: build
 	mkdir -p dist
-	cp -r css/ js/ logo.txt demo.js index.html dist/
+	cp -r css/ js/ logo.txt logo.png demo.js $(PAGES) dist/
 	ssh $$XORWAY_WEB_HOST "sudo mkdir -p /var/www/xorway.com && sudo chown $$USER /var/www/xorway.com"
 	rsync --delete -av dist/ $$XORWAY_WEB_HOST:/var/www/xorway.com

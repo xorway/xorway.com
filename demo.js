@@ -159,7 +159,7 @@ fetch(url)
                         // in this silly way is simply to make it harder for
                         // email address harvesting...
                         term.writeln('Well done, you made it! Here is our contact information.');
-                        term.writeln('For sales/marketing and other inquries, please contact ' + 'moc.yawrox@sodrox'.split('').reverse().join(''));
+                        term.writeln('For sales/marketing and other inquiries, please email ' + "tcatnoc".split("").reverse().join("") + "@" + "moc.yawrox".split("").reverse().join(""));
                         term.writeln('');
                         term.writeln('The full source to this demo can also be found at');
                         term.writeln('https://github.com/xorway/xorway.com');
