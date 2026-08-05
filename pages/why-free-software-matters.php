@@ -10,13 +10,215 @@ require 'includes/header.php';
       <h1>Why Free Software Matters</h1>
 
       <p class="lead">
-        TODO: Add introduction here
+        Today, much of the software we use is <i>proprietary</i> rather than
+        <i>free software</i>. Many companies are trying to take away or limit
+        your freedom in ways we find unacceptable. This text talks about why
+        this is a problem, and what we intend to do about it.
       </p>
 
-      <h2>TODO: Header</h2>
+      <h2>What do we mean by Free Software?</h2>
 
       <p>
-        TODO: Add content
+        When we talk about free software, we refer to <i>freedom</i>, not
+        <i>price</i>. Back in the days when software was distributed on physical
+        media like CD-ROMs, it was common to see physical copies of free software
+        being sold for a price. Even though this might seem "odd" and that
+        someone is "profiting off of other people's work", it's actually
+        perfectly in line with the philosophy of free software.
+      </p>
+
+      <h2>The four basic freedoms</h2>
+
+      <ul>
+        <li>The freedom to <i>run</i> the program as you wish, for any
+        purpose.</li>
+        <li>The freedom to <i>study</i> how the program works, and change it
+        so it does your computing as you wish.</li>
+        <li>The freedom to <i>redistribute copies</i> so you can help
+        others.</li>
+        <li>The freedom to <i>distribute copies of your modified versions</i>
+        to others.</li>
+      </ul>
+
+      <p>
+        The list above comes from <a
+        href="https://www.gnu.org/philosophy/free-sw.html.en#four-freedoms">this
+        page (gnu.org)</a>. In addition to the above, we would like to add a
+        fifth, basic freedom:
+      </p>
+
+      <ul>
+        <li>The freedom to <i>decide when to use the program</i> and when to
+        <i>stop using it</i>.</li>
+      </ul>
+
+      <p>
+        The above point is important in this day and age when so-called "cloud"
+        and "SaaS" solutions have become widespread. Previously, even for
+        non-free programs that you had purchased, <i>you</i>, as an individual
+        or organization, had autonomy over <i>how</i> and <i>when</i> you would
+        install the program. You were in charge of when updates would be
+        applied, and you were in charge of whether you would continue using the
+        program or not. The vendor changes the pricing model in an unreasonable
+        way? No problemo, you can just stay on the old version of the program
+        <i>that you have paid for</i>. <i>You</i> were in charge and no-one
+        could stop you from running an old, outdated, perhaps buggy and
+        unsupported program <i>for as long as you wished</i>. It was your
+        decision, and no-one else's.
+      </p>
+
+      <h2>The advent of SaaS solutions (i.e. <i>"fake software"</i>)</h2>
+
+      <p>
+        In the time of SaaS software, this has now changed. The "software
+        provider" can, if they decide to do it, shut down the "software". We
+        write "software" in quotation marks here, because GNU/FSF raises a valid
+        concern when <a
+        href="https://www.gnu.org/philosophy/who-does-that-server-really-serve.html">they
+        speak</a>
+        about <i>Service as a Software Substitute</i>. Such a solution is more
+        of a "service" than ordinary software in the traditional sense of the
+        word, with much less freedom for you as a user.
+      </p>
+
+      <p>
+        <i>"You are exaggerating the dangers here. How often does this happen in
+        reality?"</i>, one might say to challenge the statements above. Really?
+        Just go look at the <a href="https://killedbygoogle.com/">Killed by
+        Google</a> page for quite a long (307 at the time of writing) list of
+        services and products that have been, or are planned to be, discontinued
+        by Google.
+      </p>
+
+      <p>
+        Technically, the same could happen any day for any of the services you
+        might currently use and appreciate (Gmail, Google Docs, Google Maps,
+        Google Search). Now, let's be honest and state that it's of course
+        <i>unlikely</i> that the more successful, popular and profitable services
+        will be killed. But it's still a fact that <i>you are not in control
+        over your own computing</i> when you use and make yourself reliant on
+        one or more of these SaaS/cloud-based solutions.
+      </p>
+
+      <p>
+        Talking about "fake software" may seem like harsh words. Are we
+        suggesting that SaaS solutions are to be unconditionally avoided
+        altogether? Not necessarily; we work with clients on their SaaS-based
+        products ourselves. However, as a matter of principle we should remember
+        that software that is <i>only</i> available as SaaS or "cloud-based"
+        means less power to its users and more power to the companies behind
+        it.
+      </p>
+
+      <h2>Protection from "rug pulls"</h2>
+
+      <p>
+        There's another aspect worth pointing out here: with free software, you
+        have protection from so-called "rug pulls" &mdash; where the provider
+        changes the license to something less free, perhaps forcing you into
+        purchasing commercial licenses to keep using the software that your
+        own software system depends on.
+      </p>
+
+      <p>
+        This is not just a theoretical discussion. It has happened both with
+        <a href="https://www.mongodb.com/company/newsroom/press-releases/mongodb-issues-new-server-side-public-license-for-mongodb-community-server">MongoDB
+        (2018)</a> and <a href="https://redis.io/blog/redis-adopts-dual-source-available-licensing/">Redis
+        (2024)</a> previously. MongoDB remains under this license to this day,
+        but Redis luckily <a href="https://redis.io/blog/agplv3/">partially
+        retracted</a>
+        (2025) and added AGPLv3 to their list of licenses.
+      </p>
+
+      <p>
+        So, how are you protected from this? With free software licenses,
+        because of how software licensing works, <i>you can just remain on the
+        old version of the software</i>. There is nothing "forcing" you (apart
+        from possibly technical developments, new operating system versions etc.)
+        to upgrade to the new version. Once released under a free software
+        license, <i>that</i> particular version remains free forever. Again,
+        <i>you</i> as a user have control over your own computing.
+      </p>
+
+      <h2>Free Software licenses</h2>
+
+      <p>
+        Getting back to the four/five freedoms above, there are various free
+        software licenses that comply with the freedoms listed above. They
+        typically differ in areas like "can you distribute modified versions of
+        the program under another (possibly non-free) license" and similar, but
+        all free software licenses comply with the basic freedoms listed above.
+      </p>
+
+      <p>
+        Some licenses are more permissive than others, and some (typically the
+        GNU licenses, but also some others) try to be more restrictive with
+        "derivative works", essentially forcing all derivatives to remain under
+        the same free license. These different licensing models suit different
+        types of programs.
+      </p>
+
+      <h2>How does Xorway fit into all this?</h2>
+
+      <p>
+        Good question; let's get back to where we are, namely the Xorway web
+        page. Xorway Solutions have made a decision that <i>all software we
+        develop ourselves will be free software</i>. This web page is no
+        exception. Click the link at the bottom of the page to find the full
+        sources to this web site (AGPLv3). You may use it in part or in full and
+        do pretty much whatever you want with it, as long as you share your
+        modifications with everyone else under the same terms under which you
+        received it (the so-called "reciprocity" part of the GNU licenses
+        &mdash; everyone else will have the same rights as you have).
+      </p>
+
+      <p>
+        This does not apply to software that we do not own the IP (intellectual
+        property) rights to ourselves; for example, for consulting projects that
+        we work on. But for everything we have the full authority over, a free
+        software license will be used.
+      </p>
+
+      <p>
+        There is also a bigger thing coming than this web page, namely the
+        Perlang project. You can read more about it on the dedicated <a
+        href="perlang">Perlang page</a>, but this page touches it briefly
+        from a Free Software perspective.
+      </p>
+
+      <h2>Perlang</h2>
+
+      <p>
+        Perlang is a project to create a new programming language that is
+        "concurrently safe, fast and fun", suited for both system-oriented and
+        more application- and scripting-oriented programming. It is supported by
+        Xorway, in terms of that we fund its hosting infrastructure and that we
+        put development time into the project. Perlang is licensed under the
+        LGPLv2.1 and MIT licenses (different licenses for different parts of the
+        system). This ensures that Perlang will remain free software for all its
+        users, forever.
+      </p>
+
+      <h2>There is no such thing as a free lunch</h2>
+
+      <p>
+        Remember that we mentioned earlier that free software is about freedom,
+        not price? Even though free software respects our freedoms, it isn't
+        "free" in the sense that it doesn't cost money, time and effort to
+        produce. We all need to have food on the table, clothing and housing.
+        For free software projects, this can be a challenge since we don't
+        "force" the user to pay before they can access the software. Anyone can
+        typically download free software "for free", so where does the money
+        come from?
+      </p>
+
+      <p>
+        Various companies have tried to solve this in different ways, by selling
+        value-added offerings on top of free software, or going the "open core"
+        approach where some parts of the system are free software and others are
+        non-free. For the Xorway projects, we are trying a different approach.
+        You can read more on the <a href="perlang">Perlang page</a> if you
+        are interested.
       </p>
     </main>
 <?php require 'includes/footer.php'; ?>
